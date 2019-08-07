@@ -1,5 +1,6 @@
+external_IP=$(curl --silent ifconfig.io)
 setopt PROMPT_SUBST
-PROMPT='%B%F{red}<IP>@%D{%b %-d %L:%M:%S%p %Z}%f:%F{blue}${${(%):-%~}}%f$ %b'
+PROMPT='%B%F{red}$external_IP@%D{%b %-d %L:%M:%S%p %Z}%f:%F{blue}${${(%):-%~}}%f$ %b'
 TMOUT=1
 
 TRAPALRM() {
