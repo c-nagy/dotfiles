@@ -9,4 +9,3 @@ cp .tmux.conf ~/.tmux.conf
 cp .vimrc ~/.vimrc
 echo "sudo -i" >> /home/ec2-user/.bashrc
 zsh
-source ~/.zshrc
