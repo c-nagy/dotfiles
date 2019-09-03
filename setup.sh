@@ -7,5 +7,4 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 cp .zshrc ~/.zshrc
 cp .tmux.conf ~/.tmux.conf
 cp .vimrc ~/.vimrc
-echo "sudo -i" >> /home/ec2-user/.bashrc
 zsh
