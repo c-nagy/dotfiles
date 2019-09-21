@@ -1,8 +1,11 @@
-" Fix mouse bug on some distros
+"Fix mouse bug on some distros
 set mouse=
 
-" Ignore case in search
+"Remap <Esc> to ii
+:imap ii <Esc>
+
+"Ignore case in search
 set ignorecase
 
-" Enable syntax highlighting
+"Enable syntax highlighting
 syntax on
