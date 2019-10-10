@@ -2,6 +2,7 @@
 prompt_IP=$(curl --silent ifconfig.io)
 
 # Prompt setup
+setopt PROMPT_SUBST
 PROMPT='%B%F{red}$prompt_IP@%m%f:%F{blue}${${(%):-%~}}%f$ %b'
 
 # Always stay in same tmux session
