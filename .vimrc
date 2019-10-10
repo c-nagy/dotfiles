@@ -4,8 +4,8 @@ set mouse=
 "Remap <Esc> to ii
 :imap ii <Esc>
 
-"Ignore case in search
-set ignorecase
+"Smart case in search
+set smartcase
 
 "Enable syntax highlighting
 syntax on
