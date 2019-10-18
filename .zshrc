@@ -13,3 +13,10 @@ fi
 # Enable Vi mode within Zsh and set "ii" to work as the Vi escape key
 set -o vi
 bindkey -M viins 'ii' vi-cmd-mode
+
+# Handy directory movement aliases
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
