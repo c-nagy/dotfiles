@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
-# Update with non-interactive apt
+# Update with non-interactive apt inside tmux
 apt update
 apt remove apt-listchanges -y
-DEBIAN_FRONTEND=noninteractive apt upgrade -y
+apt install tmux -y
+tmux new-session "DEBIAN_FRONTEND=noninteractive apt upgrade -y"
 
 # Install packages
-apt install -y htop tmux vim zsh
+apt install -y htop vim zsh
 
 # Change shell to Zsh
 chsh -s $(which zsh) root
