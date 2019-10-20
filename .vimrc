@@ -10,8 +10,5 @@ set smartcase
 "Enable syntax highlighting
 syntax on
 
-"Highlight current line
-set cursorline
-
 "Search as characters are entered
 set incsearch
