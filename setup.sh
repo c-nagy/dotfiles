@@ -20,5 +20,5 @@ chsh -s $(which zsh) $(whoami)
 rm -rf ~/.tmux/plugins/
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-echo "Recommend rebooting now if many packages were upgraded."
-zsh
+# Reboot
+sudo reboot
