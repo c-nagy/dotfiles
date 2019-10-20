@@ -21,4 +21,5 @@ rm -rf ~/.tmux/plugins/
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Reboot
+echo "Rebooting to ensure all changes are applied."
 sudo reboot
