@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-# Update with non-interactive apt inside tmux
+# Copy config files into home dir
+cp .zshrc ~/.zshrc
+cp .tmux.conf ~/.tmux.conf
+cp .vimrc ~/.vimrc
+
+# Upgrade OS with non-interactive apt inside tmux
 apt update
 apt remove apt-listchanges -y
 apt install tmux -y
@@ -14,11 +19,6 @@ chsh -s $(which zsh) root
 
 # Set up Tmux plugin manager (comes with tmux sensible plugin)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-# Copy config files into home dir
-cp .zshrc ~/.zshrc
-cp .tmux.conf ~/.tmux.conf
-cp .vimrc ~/.vimrc
 
 # Start working
 zsh
