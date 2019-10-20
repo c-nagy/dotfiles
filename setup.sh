@@ -20,6 +20,5 @@ chsh -s $(which zsh) $(whoami)
 rm -rf ~/.tmux/plugins/
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# Reboot
-echo "Rebooting to ensure all changes are applied."
-sudo reboot
+# Reminder to refresh env and reboot
+echo "Press prefix+I to ensure tmux plugins are downloaded and then reboot to ensure all changes are applied."
