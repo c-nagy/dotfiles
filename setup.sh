@@ -1,24 +1,24 @@
 #!/usr/bin/env bash
 
-# Copy config files into home dir
+# Copy config files into home directory
 cp .zshrc ~/.zshrc
 cp .tmux.conf ~/.tmux.conf
 cp .vimrc ~/.vimrc
 
-# Upgrade OS with non-interactive apt inside tmux
-apt update
-apt remove apt-listchanges -y
-apt install tmux -y
-tmux new-session "DEBIAN_FRONTEND=noninteractive apt upgrade -y"
+# Upgrade OS with non-interactive apt
+sudo apt update
+sudo apt remove apt-listchanges -y
+DEBIAN_FRONTEND=noninteractive sudo apt upgrade -y
 
 # Install packages
-apt install -y htop vim zsh
+sudo apt install -y tmux htop vim zsh
 
 # Change shell to Zsh
-chsh -s $(which zsh) root
+chsh -s $(which zsh) $(whoami)
 
-# Set up Tmux plugin manager (comes with tmux sensible plugin)
+# Setup Tmux plugin manager from scratch (comes with tmux sensible plugin)
+rm -rf ~/.tmux/plugins/
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# Start working
+echo "Recommend rebooting now if many packages were upgraded."
 zsh
