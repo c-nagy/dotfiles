@@ -3,7 +3,7 @@ prompt_IP=$(curl --silent ifconfig.io)
 setopt PROMPT_SUBST
 PROMPT='%B%F{red}$prompt_IP@%m%f:%F{blue}${${(%):-%~}}%f$ %b'
 
-# Always stay in same tmux session
+# Always stay in same Tmux session
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux new-session -A -s base
 fi
@@ -19,13 +19,13 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
-# Save history
+# Save history to file
 export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=1000
 setopt SHARE_HISTORY
 
-# Go Paths
+# Go paths
 export GOROOT=$HOME/.go
 export PATH=$PATH:$GOROOT/bin
 export GOPATH=$HOME/go
