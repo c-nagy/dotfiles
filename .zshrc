@@ -1,7 +1,5 @@
-# Set IP in prompt
-prompt_IP=$(curl --silent ifconfig.io)
-
 # Prompt setup
+prompt_IP=$(curl --silent ifconfig.io)
 setopt PROMPT_SUBST
 PROMPT='%B%F{red}$prompt_IP@%m%f:%F{blue}${${(%):-%~}}%f$ %b'
 
@@ -22,7 +20,13 @@ alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
 # Save history
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=1000
+export HISTFILE=~/.zsh_history
+export HISTSIZE=10000
+export SAVEHIST=1000
 setopt SHARE_HISTORY
+
+# Go Paths
+export GOROOT=$HOME/.go
+export PATH=$PATH:$GOROOT/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
