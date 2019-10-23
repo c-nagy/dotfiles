@@ -22,7 +22,7 @@ alias ......="cd ../../../../.."
 # Save history to file
 export HISTFILE=~/zsh_history.txt
 export HISTSIZE=10000
-export SAVEHIST=1000
+export SAVEHIST=999999999
 setopt SHARE_HISTORY
 
 # Go paths
