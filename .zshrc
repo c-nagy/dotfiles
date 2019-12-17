@@ -30,3 +30,7 @@ export GOROOT=$HOME/.go
 export PATH=$PATH:$GOROOT/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+# Bash style ctrl-R search backwards
+bindkey -v
+bindkey '^R' history-incremental-search-backward
