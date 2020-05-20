@@ -1,5 +1,5 @@
 # Prompt setup
-prompt_IP=$(curl --silent ifconfig.io)
+prompt_IP=$(curl --silent checkip.amazonaws.com)
 setopt PROMPT_SUBST
 PROMPT='%B%F{red}$prompt_IP@%m%f:%F{blue}${${(%):-%~}}%f$ %b'
 
