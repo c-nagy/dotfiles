@@ -21,9 +21,12 @@ alias ......="cd ../../../../.."
 
 # Save history to file
 export HISTFILE=~/zsh_history.txt
-export HISTSIZE=10000
-export SAVEHIST=999999999
+export HISTSIZE=1000000000
+export SAVEHIST=1000000000
+# Share history between terminals
 setopt SHARE_HISTORY
+# Enable timestamps in history file
+setopt EXTENDED_HISTORY
 
 # Go paths
 export GOROOT=$HOME/.go
