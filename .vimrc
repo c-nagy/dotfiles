@@ -12,3 +12,6 @@ syntax on
 
 "Search as characters are entered
 set incsearch
+
+"Show hidden characters by default
+set list
