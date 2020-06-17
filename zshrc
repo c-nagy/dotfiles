@@ -30,3 +30,6 @@ export PATH=$PATH:$GOPATH/bin
 # Bash style ctrl-R search backwards
 bindkey -v
 bindkey '^R' history-incremental-search-backward
+
+# Invoke Zsh auto-suggestions tool (installed by setup.sh)
+source /opt/zsh-autosuggestions/zsh-autosuggestions.zsh
