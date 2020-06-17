@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # Copy config files into home directory
-cp .zshrc ~/.zshrc
-cp .tmux.conf ~/.tmux.conf
-cp .vimrc ~/.vimrc
+cp zshrc ~/.zshrc
+cp tmux.conf ~/.tmux.conf
+cp vimrc ~/.vimrc
 
 # Upgrade OS with non-interactive apt
 sudo apt update
