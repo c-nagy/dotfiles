@@ -28,6 +28,10 @@ dpkg -i lsd.deb && rm lsd.deb && echo 'alias ls="lsd"' >> ~/.zshrc && echo 'alia
 curl -s -L --output /usr/share/fonts/ https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Bold/complete/Hack%20Bold%20Nerd%20Font%20Complete.ttf
 fc-cache -f -v
 
+# Install bashtop (provides more info than htop)
+git clone https://github.com/aristocratos/bashtop.git /opt/bashtop/
+cd /opt/bashtop/
+make install && echo 'alias top="bashtop"' >> ~/.zshrc && echo 'alias htop="bashtop"' >> ~/.zshrc
+
 # Reminder to refresh env and reboot
 echo "Recommend to reboot now and, once back up, press tmux prefix+I to ensure tmux plugins are initialized."
-
