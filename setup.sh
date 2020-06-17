@@ -26,6 +26,7 @@ dpkg -i lsd.deb && rm lsd.deb
 
 # Download and install patched font that allows for more icons for LSD
 curl -s -L --output /usr/share/fonts/ https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Bold/complete/Hack%20Bold%20Nerd%20Font%20Complete.ttf
+fc-cache -f -v
 
 # Reminder to refresh env and reboot
 echo "Press prefix+I to ensure tmux plugins are downloaded and then reboot to ensure all changes are applied."
