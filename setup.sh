@@ -20,5 +20,9 @@ chsh -s $(which zsh) $(whoami)
 rm -rf ~/.tmux/plugins/
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+# Grab and install latest release version of LSD (ls replacement). Hacky wget command but seems to work well:
+wget `curl -L https://github.com/Peltoche/lsd/releases/latest -s | grep -E 'lsd_.*_amd64.deb' | sort -u | grep href | cut -d '"' -f2 | sed 's/^/https:\/\/github.com/g'`
+dpkg -i lsd_*_amd64.deb && rm lsd_*_amd64.deb
+
 # Reminder to refresh env and reboot
 echo "Press prefix+I to ensure tmux plugins are downloaded and then reboot to ensure all changes are applied."
