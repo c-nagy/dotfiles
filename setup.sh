@@ -33,5 +33,8 @@ git clone https://github.com/aristocratos/bashtop.git /opt/bashtop/
 cd /opt/bashtop/
 make install && echo 'alias top="bashtop"' >> ~/.zshrc && echo 'alias htop="bashtop"' >> ~/.zshrc
 
+# Zsh auto-suggestions tool
+git clone https://github.com/zsh-users/zsh-autosuggestions.git /opt/zsh-autosuggestions
+
 # Reminder to refresh env and reboot
 echo "Recommend to reboot now and, once back up, press tmux prefix+I to ensure tmux plugins are initialized."
