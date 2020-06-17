@@ -12,13 +12,6 @@ fi
 set -o vi
 bindkey -M viins 'ii' vi-cmd-mode
 
-# Handy directory movement aliases
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
-
 # Save history to file
 export HISTFILE=~/zsh_history.txt
 export HISTSIZE=1000000000
