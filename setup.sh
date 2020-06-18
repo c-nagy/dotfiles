@@ -20,7 +20,7 @@ if [[ -z "$projectname" ]]; then
 fi
 hostnamectl set-hostname $hostname
 echo '127.0.0.1 $hostname' >> /etc/hosts
-sed "s/base/$projectname/" ~/.zshrc
+sed -i "s/base/$projectname/" ~/.zshrc
 
 # Upgrade OS with non-interactive apt
 sudo apt update
