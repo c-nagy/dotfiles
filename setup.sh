@@ -1,9 +1,26 @@
 #!/usr/bin/env bash
 
-# Copy config files into home directory
+# Copy/overwrite config files in home directory
 cp zshrc ~/.zshrc
 cp tmux.conf ~/.tmux.conf
 cp vimrc ~/.vimrc
+
+# Interactively get hostname and project name
+echo "[?] What hostname should this box have? Needs to be DNS compliant, so no spaces/most special chars and keep it short. Example: ClientEXT"
+read -p 'Enter hostname: ' hostname
+if [[ -z "$hostname" ]]; then
+   printf '%s\n' "No hostname appears to have been entered, quitting."
+   exit 1
+fi
+echo "[?] What should this project be called? This is used for naming the primary Tmux session. Keep it short, but spaces are okay. Example: Client External 2020"
+read -p 'Enter project name: ' projectname
+if [[ -z "$projectname" ]]; then
+   printf '%s\n' "No project name appears to have been entered, quitting."
+   exit 1
+fi
+hostnamectl set-hostname $hostname
+echo '127.0.0.1 $hostname' >> /etc/hosts
+sed "s/base/$projectname/" ~/.zshrc
 
 # Upgrade OS with non-interactive apt
 sudo apt update
