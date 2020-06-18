@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # Copy/overwrite config files in home directory
-cp zshrc ~/.zshrc
+cp zshrc.zsh ~/.zshrc
 cp tmux.conf ~/.tmux.conf
-cp vimrc ~/.vimrc
+cp vimrc.vim ~/.vimrc
 
 # Interactively get hostname and project name
 echo "[?] What hostname should this box have? Needs to be DNS compliant, so no spaces/most special chars and keep it short. Example: ClientEXT"
