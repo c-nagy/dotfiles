@@ -28,7 +28,7 @@ sudo apt remove apt-listchanges -y
 DEBIAN_FRONTEND=noninteractive sudo apt upgrade -y
 
 # Install packages
-sudo apt install -y tmux htop vim zsh dig dnsutils
+sudo apt install -y tmux htop vim zsh dnsutils
 
 # Change shell to Zsh
 chsh -s $(which zsh) $(whoami)
