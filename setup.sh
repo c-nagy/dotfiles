@@ -25,7 +25,7 @@ echo "127.0.0.1 $hostname" >> /etc/hosts
 sed -i "s/base/$projectname/" ~/.zshrc
 
 # Check if we should install pwndrop service
-echo "[?] Enter y if you want to install pwndrop now (it uses ports 80 and 443)."
+echo "[?] Enter y if you want to install pwndrop now (it uses ports 80 and 443 by default)."
 read -p 'Enter y if you want pwndrop installed now: ' pwndropChoice
 shopt -s nocasematch # Case insensitive for pwndropChoice input
 if [[ "$pwndropChoice" == "y" ]]; then
@@ -64,6 +64,14 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git /opt/zsh-autosugg
 
 # Disable system beeps
 rmmod pcspkr && echo "blacklist pcspkr" >> /etc/modprobe.d/blacklist.conf
+
+# Install Docker
+apt remove -y docker docker-engine docker.io containerd runc 2>/dev/null
+apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian buster stable"
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+apt update
+apt install docker-ce docker-ce-cli containerd.io
 
 # Reminder to refresh env and reboot
 echo "Recommend to reboot now and, once back up, press tmux prefix+I to ensure tmux plugins are initialized."
