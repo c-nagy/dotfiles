@@ -52,5 +52,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git /opt/zsh-autosugg
 # Disable system beeps
 rmmod pcspkr && echo "blacklist pcspkr" >> /etc/modprobe.d/blacklist.conf
 
+# Add pwndrop service
+systemctl stop apache2
+curl https://raw.githubusercontent.com/kgretzky/pwndrop/master/install_linux.sh | sudo bash
+
 # Reminder to refresh env and reboot
 echo "Recommend to reboot now and, once back up, press tmux prefix+I to ensure tmux plugins are initialized."
