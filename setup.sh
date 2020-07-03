@@ -27,6 +27,7 @@ sed -i "s/base/$projectname/" ~/.zshrc
 # Check if we should install pwndrop service
 echo "[?] Enter y if you want to install pwndrop now (it uses ports 80 and 443)."
 read -p 'Enter y if you want pwndrop installed now: ' pwndropChoice
+shopt -s nocasematch # Case insensitive for pwndropChoice input
 if [[ "$pwndropChoice" == "y" ]]; then
    printf '%s\n' "You said y :) Trying to install pwndrop now..."
    curl https://raw.githubusercontent.com/kgretzky/pwndrop/master/install_linux.sh | sudo bash
