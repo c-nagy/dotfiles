@@ -71,7 +71,7 @@ apt install -y apt-transport-https ca-certificates curl gnupg-agent software-pro
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian buster stable"
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 apt update
-apt install docker-ce docker-ce-cli containerd.io
+apt install -y docker-ce docker-ce-cli containerd.io
 
 # Reminder to refresh env and reboot
 echo "Recommend to reboot now and, once back up, press tmux prefix+I to ensure tmux plugins are initialized."
