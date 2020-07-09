@@ -1,7 +1,7 @@
 # Prompt setup
-public_IP=$(curl --silent checkip.amazonaws.com)$
-private_IP=$(hostname -I | head -n 1 | tr -d ' \t\n\r\f')$
-setopt PROMPT_SUBST$
+public_IP=$(curl --silent checkip.amazonaws.com)
+private_IP=$(hostname -I | head -n 1 | tr -d ' \t\n\r\f')
+setopt PROMPT_SUBST
 PROMPT='%B%F{red}$public_IP / $private_IP%f:%F{blue}${${(%):-%~}}%f$ %b'
 
 # Always stay in same Tmux session
