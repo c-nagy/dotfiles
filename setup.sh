@@ -41,7 +41,7 @@ sudo apt remove apt-listchanges -y
 DEBIAN_FRONTEND=noninteractive sudo apt upgrade -y
 
 # Install packages
-sudo apt install -y tmux htop vim zsh dnsutils fonts-hack-ttf
+sudo apt install -y tmux htop vim zsh dnsutils fonts-hack-ttf ncat
 
 # Change shell to Zsh
 chsh -s $(which zsh) $(whoami)
