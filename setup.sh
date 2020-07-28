@@ -35,6 +35,17 @@ else
    printf '%s\n' "You didn't say y, that's okay. Not installing pwndrop."
 fi
 
+# Check if we should append sudo -i to the .bashrc files of everybody
+echo "[?] Enter y if you want to append sudo -i to all .bashrc files in /home/ for auto-elevation to root."
+read -p 'Enter y if you want sudo -i appended to all .bashrc files: ' bashrcChoice
+shopt -s nocasematch # Case insensitive for bashrcChoice input
+if [[ "$bashrcChoice" == "y" ]]; then
+   printf '%s\n' "You said y :) Appending sudo -i to the .bashrc files now..."
+   find /home/ -type f -name '.bashrc' -exec "echo \"sudo -i\" >> {}" \;
+else
+   printf '%s\n' "You didn't say y, that's okay. Not appending sudo -i."
+fi
+
 # Upgrade OS with non-interactive apt
 sudo apt update
 sudo apt remove apt-listchanges -y
