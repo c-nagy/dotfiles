@@ -41,7 +41,7 @@ read -p 'Enter y if you want sudo -i appended to all .bashrc files: ' bashrcChoi
 shopt -s nocasematch # Case insensitive for bashrcChoice input
 if [[ "$bashrcChoice" == "y" ]]; then
    printf '%s\n' "You said y :) Appending sudo -i to the .bashrc files now..."
-   find /home/ -type f -name '.bashrc' -exec "echo \"sudo -i\" >> {}" \;
+   find /home/ -type f -name '.bashrc' -exec sh -c "echo sudo -i >> {}" \;
 else
    printf '%s\n' "You didn't say y, that's okay. Not appending sudo -i."
 fi
