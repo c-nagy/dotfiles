@@ -34,3 +34,5 @@ bindkey '^R' history-incremental-search-backward
 
 # Invoke Zsh auto-suggestions tool (installed by setup.sh)
 source /opt/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Orange font for Zsh suggestions
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#f56e03"
