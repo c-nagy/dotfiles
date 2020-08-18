@@ -46,10 +46,18 @@ else
    printf '%s\n' "You didn't say y, that's okay. Not appending sudo -i."
 fi
 
-# Upgrade OS with non-interactive apt
-sudo apt update
-sudo apt remove apt-listchanges -y
-DEBIAN_FRONTEND=noninteractive sudo apt upgrade -y
+# Check if we should upgrade OS with apt
+echo "[?] Enter y if you want to have apt update and upgrade ran now."
+read -p 'Enter y to start the upgrade: ' upgradeChoice
+shopt -s nocasematch # Case insensitive for upgradeChoice input
+if [[ "$upgradeChoice" == "y" ]]; then
+   printf '%s\n' "You said y :) Upgrading via apt now..."
+   sudo apt update
+   sudo apt remove apt-listchanges -y
+   DEBIAN_FRONTEND=noninteractive sudo apt upgrade -y
+else
+   printf '%s\n' "You didn't say y, that's okay. Not updating OS."
+fi
 
 # Install packages
 sudo apt install -y tmux htop vim zsh dnsutils fonts-hack-ttf ncat
