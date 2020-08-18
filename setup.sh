@@ -60,6 +60,7 @@ else
 fi
 
 # Install packages
+sudo apt update
 sudo apt install -y tmux htop vim zsh dnsutils fonts-hack-ttf ncat
 
 # Change shell to Zsh
