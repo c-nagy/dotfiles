@@ -36,3 +36,6 @@ bindkey '^R' history-incremental-search-backward
 source /opt/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Orange font for Zsh suggestions
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#f56e03"
+
+# Add xclip alias 'c' for easily piping command output into clipboard
+alias "c=xclip -selection clipboard"
