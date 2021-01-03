@@ -61,7 +61,7 @@ fi
 
 # Install packages
 sudo apt update
-sudo apt install -y tmux htop vim zsh dnsutils fonts-hack-ttf ncat
+sudo apt install -y tmux htop vim zsh dnsutils fonts-hack-ttf ncat xclip
 
 # Change shell to Zsh
 chsh -s $(which zsh) $(whoami)
