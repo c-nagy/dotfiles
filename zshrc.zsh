@@ -1,4 +1,6 @@
 # Prompt setup
+# Todo: Fix the hardcoded '$' at the end of the prompt so that it changes to '#' if running as root.
+# also, make it so the public IP is switched to the local hostname if an internet connection is not available.
 public_IP=$(curl --silent checkip.amazonaws.com)
 private_IP=$(hostname -I | cut -d ' ' -f1)
 setopt PROMPT_SUBST
@@ -21,12 +23,6 @@ export SAVEHIST=1000000000
 setopt SHARE_HISTORY
 # Enable timestamps in history file
 setopt EXTENDED_HISTORY
-
-# Go paths
-export GOROOT=$HOME/.go
-export PATH=$PATH:$GOROOT/bin
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
 
 # Bash style ctrl-R search backwards
 bindkey -v
