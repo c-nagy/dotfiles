@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
+# Todo: Refactor script so it's effecient at running as an update script for everything too. Maybe just add an --update flag, but it would be cool to have it autodetect if it should be a 'update' or 'fresh' install and only display pertinent prompts.
+
 # Copy/overwrite config files in home directory
 cp zshrc.zsh ~/.zshrc
 cp tmux.conf ~/.tmux.conf
 cp vimrc.vim ~/.vimrc
 
+# Todo: Make this block optional with a prompt. Ensure the hostname changing steps are in here rather than spread out in this script. 
 # Interactively get name of host
 echo "[?] What hostname should this box have? Needs to be DNS compliant, so no spaces/most special chars and keep it short. Example: ClientEXT"
 read -p 'Enter hostname: ' hostname
@@ -47,6 +50,7 @@ else
 fi
 
 # Check if we should upgrade OS with apt
+# Refactor this so that 'apt update' doesn't have to be ran multiple times in this script.
 echo "[?] Enter y if you want to have apt update and upgrade ran now."
 read -p 'Enter y to start the upgrade: ' upgradeChoice
 shopt -s nocasematch # Case insensitive for upgradeChoice input
@@ -86,10 +90,11 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git /opt/zsh-autosugg
 rmmod pcspkr && echo "blacklist pcspkr" >> /etc/modprobe.d/blacklist.conf
 
 # Install Docker
+# Todo: Make this Docker host install optional with a prompt.
 apt remove -y docker docker-engine docker.io containerd runc 2>/dev/null
 apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian buster stable"
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian buster stable"
 apt update
 apt install -y docker-ce docker-ce-cli containerd.io
 
