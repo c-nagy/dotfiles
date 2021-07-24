@@ -65,7 +65,7 @@ fi
 
 # Install packages
 sudo apt update
-sudo apt install -y tmux htop vim zsh dnsutils fonts-hack-ttf ncat xclip
+sudo apt install -y curl fortune tmux htop vim zsh dnsutils fonts-hack-ttf ncat xclip zsh-autosuggestions zsh-syntax-highlighting
 
 # Change shell to Zsh
 chsh -s $(which zsh) $(whoami)
@@ -82,9 +82,6 @@ dpkg -i lsd.deb && rm lsd.deb && echo 'alias ls="lsd"' >> ~/.zshrc && echo 'alia
 git clone https://github.com/aristocratos/bashtop.git /opt/bashtop/
 cd /opt/bashtop/
 make install && echo 'alias top="bashtop"' >> ~/.zshrc && echo 'alias htop="bashtop"' >> ~/.zshrc
-
-# Install Zsh auto-suggestions tool
-git clone https://github.com/zsh-users/zsh-autosuggestions.git /opt/zsh-autosuggestions
 
 # Disable system beeps
 rmmod pcspkr && echo "blacklist pcspkr" >> /etc/modprobe.d/blacklist.conf
