@@ -24,7 +24,11 @@ sudo apt autoremove -y 2>&1
 echo "${green}==>${reset} All Updates & Cleanups Finished"
 
 # Install packages available in Apt
-sudo apt install -y bashtop curl fortune lsd tmux htop vim zsh dnsutils fonts-hack-ttf ncat xclip zsh-autosuggestions zsh-syntax-highlighting lolcat
+sudo apt install -y bashtop curl fortune tmux htop vim zsh dnsutils fonts-hack-ttf ncat xclip zsh-autosuggestions zsh-syntax-highlighting lolcat
+
+# Install lsd
+curl -s -L --output lsd.deb `curl -L https://github.com/Peltoche/lsd/releases/latest -s | grep -E 'lsd_.*_amd64.deb' | sort -u | grep href | cut -d '"' -f2 | sed 's/^/https:\/\/github.com/g'`
+sudo apt install ./lsd.deb && rm lsd.deb
 
 # Update Joplin
 echo "${yellow}==>${reset} joplin update..."
