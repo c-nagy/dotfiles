@@ -24,7 +24,7 @@ sudo apt autoremove -y 2>&1
 echo "${green}==>${reset} All Updates & Cleanups Finished"
 
 # Install packages available in Apt
-sudo apt install -y curl fortune tmux htop vim zsh dnsutils fonts-hack-ttf ncat xclip zsh-autosuggestions zsh-syntax-highlighting lolcat
+sudo apt install -y bashtop curl fortune lsd tmux htop vim zsh dnsutils fonts-hack-ttf ncat xclip zsh-autosuggestions zsh-syntax-highlighting lolcat
 
 # Update Joplin
 echo "${yellow}==>${reset} joplin update..."
@@ -37,19 +37,6 @@ chsh -s $(which zsh) $(whoami)
 # Setup Tmux plugin manager including "tmux sensible" plugin
 rm -rf ~/.tmux/plugins/
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-# Grab and install latest release version of LSD (ls replacement). Hacky download command but seems to be durable:
-curl -s -L --output lsd.deb `curl -L https://github.com/Peltoche/lsd/releases/latest -s | grep -E 'lsd_.*_amd64.deb' | sort -u | grep href | cut -d '"' -f2 | sed 's/^/https:\/\/github.com/g'`
-sudo apt install ./lsd.deb && rm lsd.deb
-
-# Install bashtop (provides more info than htop)
-git clone https://github.com/aristocratos/bashtop.git /opt/bashtop/
-cd /opt/bashtop/
-sudo make install
-
-# Disable annoying system beeps
-sudo rmmod pcspkr
-sudo echo "blacklist pcspkr" >> /etc/modprobe.d/blacklist.conf
 
 # Reminder to refresh env and reboot
 echo "Recommend to reboot now and, once back up, press tmux prefix+I to ensure tmux plugins are initialized."
