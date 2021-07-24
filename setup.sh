@@ -7,6 +7,11 @@ cp zshrc.zsh ~/.zshrc
 cp tmux.conf ~/.tmux.conf
 cp vimrc.vim ~/.vimrc
 
+# Install packages
+sudo apt update
+sudo apt full-upgrade
+sudo apt install -y curl fortune tmux htop vim zsh dnsutils fonts-hack-ttf ncat xclip zsh-autosuggestions zsh-syntax-highlighting
+
 # Todo: Make this block optional with a prompt. Ensure the hostname changing steps are in here rather than spread out in this script. 
 # Interactively get name of host
 echo "[?] What hostname should this box have? Needs to be DNS compliant, so no spaces/most special chars and keep it short. Example: ClientEXT"
@@ -56,16 +61,11 @@ read -p 'Enter y to start the upgrade: ' upgradeChoice
 shopt -s nocasematch # Case insensitive for upgradeChoice input
 if [[ "$upgradeChoice" == "y" ]]; then
    printf '%s\n' "You said y :) Upgrading via apt now..."
-   sudo apt update
    sudo apt remove apt-listchanges -y
    DEBIAN_FRONTEND=noninteractive sudo apt upgrade -y
 else
    printf '%s\n' "You didn't say y, that's okay. Not updating OS."
 fi
-
-# Install packages
-sudo apt update
-sudo apt install -y curl fortune tmux htop vim zsh dnsutils fonts-hack-ttf ncat xclip zsh-autosuggestions zsh-syntax-highlighting
 
 # Change shell to Zsh
 chsh -s $(which zsh) $(whoami)
