@@ -1,14 +1,6 @@
-# Prompt setup
-# Todo: Fix the hardcoded '$' at the end of the prompt so that it changes to '#' if running as root.
-# also, make it so the public IP is switched to the local hostname if an internet connection is not available.
-public_IP=$(curl --silent checkip.amazonaws.com)
-private_IP=$(hostname -I | cut -d ' ' -f1)
-setopt PROMPT_SUBST
-PROMPT='%B%F{red}$public_IP / $private_IP%f:%F{blue}${${(%):-%~}}%f$ %b'
-
 # Always stay in same Tmux session
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux new-session -A -s "base"
+  exec tmux new-session -A -s "persist"
 fi
 
 # Enable Vi mode within Zsh and set "ii" to work as the Vi escape key
@@ -24,14 +16,36 @@ setopt SHARE_HISTORY
 # Enable timestamps in history file
 setopt EXTENDED_HISTORY
 
-# Bash style ctrl-R search backwards
+# Bash-style ctrl-R search backwards in Zsh
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 
-# Invoke Zsh auto-suggestions tool (installed by setup.sh)
-source /opt/zsh-autosuggestions/zsh-autosuggestions.zsh
-# Orange font for Zsh suggestions
+# Zsh suggestions and highlights
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#f56e03"
 
 # Add xclip alias 'c' for easily piping command output into clipboard
 alias "c=xclip -selection clipboard"
+
+# Misc aliases for quality of life
+alias ls="lsd" 
+alias la="lsd -al" 
+alias lt="lsd -l --tree" 
+alias cat="batcat"
+alias fortune="fortune | lolcat"
+alias quote='fortune | lolcat'
+alias who='tuxi -r who'
+alias what='tuxi -r what'
+alias spanish='tuxi -r in spanish'
+alias weather='tuxi -r weather in missoula'
+alias tuxi='tuxi -r'
+
+# Go paths
+export GOROOT=$HOME/.go
+export PATH=$PATH:$GOROOT/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+# Fortune once everything is loaded up
+fortune
